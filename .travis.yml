@@ -1,0 +1,22 @@
+dist: xenial
+before_install:
+- "sudo apt-get update && sudo apt-get install --no-install-recommends texlive-bibtex-extra texlive-bibtex-extra texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng texlive-publishers && sudo texhash"
+script:
+- mkdir .build
+- REVID=${TRAVIS_COMMIT:0:7}
+- BUILDCSTDATE=$(TZ="Europe/Prague" date +"%d-%h-%y, %H:%M:%S")
+- sed -i -e "s/---REVISION\\\_ID---/$REVID/g" ./brochure-venturis.tex
+- sed -i -e "s/---RELEASE\\\_ID---/$TRAVIS_TAG/g" ./brochure-venturis.tex  
+- sed -i -e "s/---BUILDDATE---/$BUILDCSTDATE/g" ./brochure-venturis.tex  
+- pdflatex -output-directory .build ./brochure-venturis.tex
+- mv .build/brochure-venturis.pdf .build/manual.pdf
+deploy:
+  provider: releases
+  api_key:
+    secure: ahhIgZD2o6nLMgGxgYXoLN5NiCCaoSchp247WVL76Rr0zMW6UXMfiqL7b13WlANXWv64czrMq+JGnmq4V+Vo9/HxSVnnGjehskN9mTk92g22Nsx8CJD9KJcNLdMlpfze4G2QamoJJoy3+lXi7o6YicvSTFXmwpwKkPanVOyu9OxX2IGBf+rAJyZ2ezgBrnW59u5i6f/cmDiR0dzMNItTXWmUrZbLkJV0uCCDPYbtE5xd1U9M3kGkqzCDOygDvqkW8HUliPqGYN3MPYf6MiN9OzJmc2TwLUv8O65S0IHAMUy0ZP9YXXEPN0fo6EkZCYWd+7CmlW5SqpGhvpVFsne4UteosKMA4ITGFUwlgOebmVnpADd6lHzFcKn+nvp/NVsICNfV6Vx7d/3xbRgYUNoBtDMIHhkGAiSVGsbq2SqU5dJvg0+gSH4t7hh+8lAXl/mUj7kzW40ulJzgeHHcq7E6tAPQYxhsQSQqBuVN1/QxZE+lNI0am2Ncd858oZBhy2yC86JFAv/GyUCePELHX+hPmXuwMOZCk2L8CyWIXWzTVd3kLgpnw1qrlv+Fks2UtX2GiaGA8sBe8EGe3oREpDdw/Pe1fI35ND17b1xcsvZ/x5/GVywUm3XDcTHswBWFZOaCMWipmuNUrSci7UfFgcTlTcHUfi1Le8y5WYLER8af2/Y=
+  file:
+  - .build/manual.pdf
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
