@@ -65,7 +65,7 @@
 \textbf{Miscellaneous}\\
 \begin{itemize}[noitemsep,topsep=0pt]
 	\item PC login: industra/industra
-	\item laser chamber dimensions: 1600mm x 1000mm
+	\item laser chamber dimensions: 1600mm $\times$ 1000mm
 \end{itemize}
 \bigskip
 \textbf{Support}\\
@@ -104,7 +104,7 @@
 There are multiple types of engraving styles available...
 
 \subsection{Dot Mode (\textit{precision cutting})}
-For cutting hard or higher depth material (8+ mm) the \textit{Dot mode} can be used. It leaves smoother and cleaner surface, but takes more time than standard cutting. It can be enabled in the cut settings window (the same where you set up laser speed and power) - at the bottom of that window. You have to set spacing and time. The values have to be tested for each material. 18mm wood is nicely cut with spacing set to 0.10mm and time 23ms, using the 4" head.
+For cutting hard or higher depth material (8+ mm) the \textit{Dot mode} can be used. It leaves smoother and cleaner surface, but takes more time than standard cutting. It can be enabled in the cut settings window (the same where you set up laser speed and power) -- at the bottom of that window. You have to set spacing and time. The values have to be tested for each material. 18mm wood is nicely cut with spacing set to 0.10mm and time 23ms, using the 4" head.
 
 
 
@@ -289,7 +289,7 @@ You can change the head anytime, so it will suit your exact needs. Replacing the
 		\item fire (ignition of the processed material)
 		\item toxic or corrosive fumes
 		\item laser beam irradiation (loss of eyesight, severe burn injuries) from direct and reflected beam
-		\item fingers / hair / clothes can get pulled or crushed (movement of head/table with loading door opened)
+		\item fingers/hair/clothes can get pulled or crushed (movement of head/table with loading door opened)
 		\item laser head and other parts of the machine can get damaged (curved/non-planar materials)
 	
 	\end{itemize}
@@ -298,8 +298,8 @@ You can change the head anytime, so it will suit your exact needs. Replacing the
 	\subsection{Safety Features and Protective Equipment}
 	\begin{itemize}[noitemsep,topsep=0pt]
 		
-		\item Central stop
-		\item Fire extinguisher
+		\item central stop
+		\item fire extinguisher
 		\item Certified laser protecting goggles
 		
 	\end{itemize}
@@ -308,8 +308,8 @@ You can change the head anytime, so it will suit your exact needs. Replacing the
 	\subsection{Operational Malfunction}
 	\begin{itemize}[noitemsep,topsep=0pt]
 		
-		\item Job doesn't start
-		\item Job didn't finish
+		\item job doesn't start
+		\item job didn't finish
 		
 	\end{itemize}
 		\columnbreak
@@ -329,12 +329,17 @@ You can change the head anytime, so it will suit your exact needs. Replacing the
 
 %% Centered vertical allignment
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
+\newcolumntype{C}{>{\Centering\arraybackslash}X}
 \begin{table}[h]
+	
+	\centering
 	\begin{tabularx}{\textwidth}{|m{10em}|l|X|}
-		\hline\centering
-		\textbf{Material} & \textbf{Danger} & \textbf{Details}                                                                                                                                                                                                                                      \\ \hline
-		Chlorine Based Materials (PVC/vinyl/artificial lether/...) & Toxic/dangerous fumes & Fumes produced by burning chlorine or its chemical compounds are highly toxic to people and dangerous for the equipment                                                             \\ \hline
-		Hobyglass & Melts & Highly self healing material, which produces light spiderweb-like pollution.                                                                                                                                                                    \\ \hline
+		
+		\hline
+		\centering
+		\textbf{Material} & \multicolumn{1}{c|}{\textbf{Danger}} & \multicolumn{1}{c|}{\textbf{Details}}                                                                                                                                                   \\ \hline
+		Chlorine Based Materials (PVC/vinyl/artificial lether/...) & Toxic/dangerous fumes & Fumes produced by burning chlorine or its chemical compounds are highly toxic to people and dangerous for the equipment.                                                             \\ \hline
+		Hobbyglass & Melts & Highly self healing material, which produces light spiderweb-like pollution.                                                                                                                                                                    \\ \hline
 		Mirrors, PCB (copper) & Reflections & Highly reflective materials can reflect the laser beam back to its source and damage/destroy it in the process.                                                                                                                                                             \\ \hline
 		ABS                                                      & Melts & ABS does not cut well in a laser cutter. It tends to melt rather than vaporize, and has a higher chance of catching on fire and leaving behind melted gooey deposits on the vector cutting grid. It also does not engrave well (again, tends to melt).
 		\\ \hline
